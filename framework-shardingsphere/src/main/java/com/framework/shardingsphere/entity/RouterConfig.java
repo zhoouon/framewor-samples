@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * @Author: zhoudong
@@ -17,6 +18,7 @@ import lombok.Data;
  * 路由器配置信息
  */
 @Data
+@ToString
 @TableName(value = "ROUTER_CONFIG")
 public class RouterConfig extends BaseEntity {
     /**

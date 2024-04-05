@@ -1,7 +1,10 @@
 package com.framework.shardingsphere;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.framework.shardingsphere.entity.RouterConfig;
 import com.framework.shardingsphere.service.RouterConfigService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,12 +15,21 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @Date: 2024/4/4 23:35
  * @Version: 1.0.0
  **/
+@Slf4j
 @SpringBootTest
 public class TestShardingSphere {
 
     @Autowired
     private RouterConfigService routerConfigService;
 
+
+    /**
+     * @param
+     * @return: void
+     * @description: 批量插入200条数据，测试分库分表
+     * @author: zhoudong
+     * @date: 2024/4/5 12:44
+     */
     @Test
     public void test(){
         for (int i = 0; i < 200; i++) {
@@ -31,5 +43,11 @@ public class TestShardingSphere {
             routerConfig.setHideSwitch(Byte.valueOf("1"));
             routerConfigService.insert(routerConfig);
         }
+    }
+
+    @Test
+    public void getRouterConfig(){
+        RouterConfig routerConfig = routerConfigService.findById(982791022058668032L);
+        log.info("查询出来的分库分表数据是: {}", routerConfig.toString());
     }
 }

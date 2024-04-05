@@ -20,4 +20,6 @@ public interface RouterConfigService {
 
     Integer deleteById(Long id);
 
+    RouterConfig findById(Long id);
+
 }

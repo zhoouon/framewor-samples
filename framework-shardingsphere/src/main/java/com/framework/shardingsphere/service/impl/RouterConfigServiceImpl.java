@@ -40,4 +40,10 @@ public class RouterConfigServiceImpl extends ServiceImpl<RouterConfigMapper, Rou
     public Integer deleteById(Long id) {
         return routerConfigMapper.deleteById(id);
     }
+
+    @Override
+    public RouterConfig findById(Long id) {
+        return routerConfigMapper.selectById(id);
+    }
+
 }
