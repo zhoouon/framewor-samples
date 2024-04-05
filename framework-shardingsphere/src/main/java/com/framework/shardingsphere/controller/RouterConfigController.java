@@ -1,5 +1,6 @@
 package com.framework.shardingsphere.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.framework.shardingsphere.entity.RouterConfig;
 import com.framework.shardingsphere.service.RouterConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,9 @@ public class RouterConfigController {
      *
      * @return
      */
-    @GetMapping(value = "/findAll", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<RouterConfig> queryOne() {
-        return routerConfigService.selectAll();
+    @GetMapping(value = "/findAllByPage", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public IPage<RouterConfig> findAllByPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+        return routerConfigService.selectAll(pageNum, pageSize);
     }
 
     @DeleteMapping("/deleteById")

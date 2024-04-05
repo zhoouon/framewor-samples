@@ -2,12 +2,15 @@ package com.framework.shardingsphere;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.framework.shardingsphere.entity.RouterConfig;
 import com.framework.shardingsphere.service.RouterConfigService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 /**
  * @Author: zhoudong
@@ -49,5 +52,13 @@ public class TestShardingSphere {
     public void getRouterConfig(){
         RouterConfig routerConfig = routerConfigService.findById(982791022058668032L);
         log.info("查询出来的分库分表数据是: {}", routerConfig.toString());
+    }
+
+
+    @Test
+    public void findAll(){
+        IPage<RouterConfig> routerConfigIPage = routerConfigService.selectAll(1, 5);
+        log.info("查询出来的分库分表数据是: {}", routerConfigIPage.getRecords());
+
     }
 }

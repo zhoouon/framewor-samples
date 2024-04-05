@@ -1,5 +1,6 @@
 package com.framework.shardingsphere.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.framework.shardingsphere.entity.DeviceInfo;
 import com.framework.shardingsphere.entity.RouterConfig;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public interface RouterConfigService {
 
     RouterConfig insert(RouterConfig routerConfig);
 
-    List<RouterConfig> selectAll();
+    IPage<RouterConfig> selectAll(Integer pageNum, Integer pageSize);
 
     Integer deleteById(Long id);
 

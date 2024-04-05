@@ -1,5 +1,10 @@
 package com.framework.shardingsphere.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.framework.shardingsphere.entity.RouterConfig;
 import com.framework.shardingsphere.mapper.RouterConfigMapper;
@@ -11,6 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author: zhoudong
@@ -31,9 +37,19 @@ public class RouterConfigServiceImpl extends ServiceImpl<RouterConfigMapper, Rou
         return routerConfig;
     }
 
+    /**
+     * @param
+     * @return: java.util.List<com.framework.shardingsphere.entity.RouterConfig>
+     * @description: 分页查询
+     * @author: zhoudong
+     * @date: 2024/4/5 12:50
+     */
     @Override
-    public List<RouterConfig> selectAll() {
-        return routerConfigMapper.selectList(null);
+    public IPage<RouterConfig> selectAll(Integer pageNum, Integer pageSize) {
+        Page<RouterConfig> page = new Page<>(pageNum, pageSize);
+        LambdaQueryWrapper<RouterConfig> wrapper = Wrappers.lambdaQuery();
+        wrapper.orderBy(true, true, RouterConfig::getUpdateTime);
+        return this.page(page,wrapper);
     }
 
     @Override
