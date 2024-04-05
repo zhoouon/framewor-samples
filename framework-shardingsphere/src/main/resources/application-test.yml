@@ -1,0 +1,37 @@
+## 不分库,分表
+spring:
+  shardingsphere:
+    mode:
+      type: Memory # Sharding-jdbc 运行模式
+    datasource:
+      names: ds1  # 数据源别名
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource  # 数据源连接池连接类型,支持 Durid,Hikari 等常见数据库连接池
+        driver-class-name: com.mysql.cj.jdbc.Driver  # 数据库连接驱动
+        jdbc-url: "jdbc:mysql://127.0.0.1:3306/sharding-sphere0?useUnicode=true&characterEncoding=utf8\
+                    &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+                    &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
+        username: root
+        password: 12345678
+    rules:  # 分库分表规则配置
+      sharding:
+        tables:
+          router_config:  # 数据库表名前缀
+            actual-data-nodes: ds1.router_config_$->{0..2}  # 实际表名
+            table-strategy:  ## 分表策略
+              standard:
+                sharding-column: id  # 按照分表的列
+                sharding-algorithm-name: router-config-inline  # 分表算法名称(使用 yml 配置不能包含下划线,否则不生效)
+            key-generate-strategy:  # 主键生成策略
+              column: id  # 主键列
+              key-generator-name: snowflake  # 策略算法名称(推荐使用雪花算法)
+        sharding-algorithms:
+          router-config-inline:
+            type: INLINE
+            props:
+              algorithm-expression: router_config_$->{id % 3}  # 分表算法(取余)
+        key-generators:
+          snowflake:
+            type: SNOWFLAKE
+    props:
+      sql-show: true  # 展示执行 SQL

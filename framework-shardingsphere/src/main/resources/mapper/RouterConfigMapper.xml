@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.framework.shardingsphere.mapper.RouterConfigMapper">
+  <resultMap id="BaseResultMap" type="com.framework.shardingsphere.entity.RouterConfig">
+    <!--@mbg.generated-->
+    <!--@Table ROUTER_CONFIG_0-->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="DEVICE_ID" jdbcType="BIGINT" property="deviceId" />
+    <result column="WIFI_NAME" jdbcType="VARCHAR" property="wifiName" />
+    <result column="WIFI_PASSWORD" jdbcType="VARCHAR" property="wifiPassword" />
+    <result column="ENCRYPT_TYPE" jdbcType="TINYINT" property="encryptType" />
+    <result column="ADMIN_PASSWORD" jdbcType="VARCHAR" property="adminPassword" />
+    <result column="WIFI_SWITCH" jdbcType="TINYINT" property="wifiSwitch" />
+    <result column="HIDE_SWITCH" jdbcType="TINYINT" property="hideSwitch" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, DEVICE_ID, WIFI_NAME, WIFI_PASSWORD, ENCRYPT_TYPE, ADMIN_PASSWORD, WIFI_SWITCH,
+    HIDE_SWITCH, CREATE_TIME, UPDATE_TIME
+  </sql>
+</mapper>

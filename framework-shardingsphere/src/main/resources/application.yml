@@ -1,0 +1,13 @@
+server:
+  port: 9891
+## spring
+spring:
+  application:
+    name: sharding-sphere
+  profiles:
+    active: prod
+
+## mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mappler/*.xml
+  type-aliases-package: com.framework.shardingsphere.entity
