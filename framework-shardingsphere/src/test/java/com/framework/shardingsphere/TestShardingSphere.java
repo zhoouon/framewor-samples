@@ -58,7 +58,7 @@ public class TestShardingSphere {
     @Test
     public void findAll(){
         IPage<RouterConfig> routerConfigIPage = routerConfigService.selectAll(1, 5);
-        log.info("查询出来的分库分表数据是: {}", routerConfigIPage.getRecords());
-
+        //log.info("查询出来的分库分表数据是: {}", routerConfigIPage.getRecords());
+        System.out.println("查询出来的分库分表数据是: " + routerConfigIPage.getRecords());
     }
 }
