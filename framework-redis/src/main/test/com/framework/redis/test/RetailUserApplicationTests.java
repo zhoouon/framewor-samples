@@ -1,4 +1,4 @@
-package com.framework.redis.bloom.config;
+package com.framework.redis.test;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;

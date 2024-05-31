@@ -20,6 +20,7 @@
         <module>framework-shardingsphere</module>
         <module>framework-concurrent</module>
         <module>framework-starter</module>
+        <module>framework-lock</module>
     </modules>
 
     <properties>
