@@ -37,6 +37,7 @@
         <fastjson.version>1.2.83</fastjson.version>
         <guava-version>31.1-jre</guava-version>
         <open-feign-version>2.2.9.RELEASE</open-feign-version>
+        <alibaba-dependencies>2022.0.0.0</alibaba-dependencies>
         <!--        <logback-version>1.2.10</logback-version>-->
         <!--        <slf4j-api-version>1.7.36</slf4j-api-version>-->
 
@@ -55,6 +56,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba-dependencies}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
