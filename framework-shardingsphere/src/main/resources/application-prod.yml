@@ -15,7 +15,7 @@ spring:
                     &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
                     &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
         username: root
-        password: 12345678
+        password: 123456
       ds1:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -23,7 +23,7 @@ spring:
                           &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
                           &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
         username: root
-        password: 12345678
+        password: 123456
     rules:
       sharding:
         default-database-strategy:
