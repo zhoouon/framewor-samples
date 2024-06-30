@@ -21,13 +21,14 @@
         <module>framework-concurrent</module>
         <module>framework-starter</module>
         <module>framework-lock</module>
+        <module>framework-minio</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>8</java.version>
+        <java.version>17</java.version>
         <spring-boot.version>2.7.18</spring-boot.version>
         <spring-cloud.version>2021.0.9</spring-cloud.version>
         <hutool.version>5.7.20</hutool.version>
