@@ -3,7 +3,7 @@ package com.framework.starter.logging.filter;
 import com.framework.starter.logging.utils.MDCTraceUtils;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import org.apache.commons.lang3.StringUtils;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -25,7 +25,7 @@ public class FeignInterceptor implements RequestInterceptor {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         // 传递请求相关header
         if (requestAttributes != null) {
-            HttpServletRequest request = requestAttributes.getRequest();
+            HttpServletRequest request = (HttpServletRequest) requestAttributes.getRequest();
             Enumeration<String> headerNames = request.getHeaderNames();
             if (headerNames != null) {
                 while (headerNames.hasMoreElements()) {

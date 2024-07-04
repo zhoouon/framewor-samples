@@ -4,14 +4,17 @@
     <parent>
         <groupId>com.framework</groupId>
         <artifactId>framework-samples</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
     <artifactId>framework-concurrent</artifactId>
-    <name>Archetype - framework-thread</name>
     <description>并发编程</description>
 
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -20,7 +23,11 @@
         <dependency>
             <groupId>com.framework</groupId>
             <artifactId>logging-framework-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 </project>

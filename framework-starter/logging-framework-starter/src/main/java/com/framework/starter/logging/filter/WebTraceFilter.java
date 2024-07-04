@@ -1,13 +1,9 @@
 package com.framework.starter.logging.filter;
 
-import cn.hutool.core.util.StrUtil;
 import com.framework.starter.logging.utils.MDCTraceUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -18,12 +14,11 @@ import java.io.IOException;
  **/
 public class WebTraceFilter extends OncePerRequestFilter {
 
-
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, jakarta.servlet.FilterChain filterChain) throws jakarta.servlet.ServletException, IOException {
         try {
             String traceId = request.getHeader(MDCTraceUtils.TRACE_ID_HEADER);
-            if (StrUtil.isEmpty(traceId)) {
+            if (StringUtils.isEmpty(traceId)) {
                 MDCTraceUtils.addTrace();
             } else {
                 MDCTraceUtils.putTrace(traceId);

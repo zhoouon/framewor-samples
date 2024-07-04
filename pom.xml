@@ -1,17 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.framework</groupId>
     <artifactId>framework-samples</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
+
     <name>framework-samples</name>
     <packaging>pom</packaging>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
-    </parent>
 
     <modules>
         <module>framework-redis</module>
@@ -19,137 +15,171 @@
         <module>framework-proxy</module>
         <module>framework-shardingsphere</module>
         <module>framework-concurrent</module>
-        <module>framework-starter</module>
         <module>framework-lock</module>
         <module>framework-minio</module>
+        <module>framework-dom4j</module>
+        <module>framework-starter</module>
     </modules>
 
     <properties>
+        <revision>2024.2.0-SNAPSHOT</revision>
+        <!--SpringCloud,SpringCloud alibaba,SpringBoot 三者之间的版本关系参考 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E-->
+        <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <spring-boot.version>2.7.18</spring-boot.version>
-        <spring-cloud.version>2021.0.9</spring-cloud.version>
-        <hutool.version>5.7.20</hutool.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
-        <commons-beanutils.version>1.9.4</commons-beanutils.version>
-        <commons-io.version>2.7</commons-io.version>
-        <fastjson.version>1.2.83</fastjson.version>
-        <guava-version>31.1-jre</guava-version>
-        <open-feign-version>2.2.9.RELEASE</open-feign-version>
-        <alibaba-dependencies>2022.0.0.0</alibaba-dependencies>
-        <!--        <logback-version>1.2.10</logback-version>-->
-        <!--        <slf4j-api-version>1.7.36</slf4j-api-version>-->
-
+        <springboot.version>3.2.4</springboot.version>
+        <spring.cloud.version>2023.0.1</spring.cloud.version>
+        <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
+        <spring.cloud.openfeign.version>3.1.8</spring.cloud.openfeign.version>
+        <spotless-maven-plugin.version>2.22.1</spotless-maven-plugin.version>
+        <maven-flatten.version>1.5.0</maven-flatten.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/nexus/content/repositories/central/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${alibaba-dependencies}</version>
+                <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.framework</groupId>
+                <artifactId>framework-dependencies</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring.cloud.openfeign.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>${open-feign-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-        <!--  开始属性绑定 配置文件有提示  -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>${commons-collections4.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-            <version>${commons-beanutils.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava-version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>ch.qos.logback</groupId>-->
-        <!--            <artifactId>logback-classic</artifactId>-->
-        <!--            <version>${logback-version}</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.slf4j</groupId>-->
-        <!--            <artifactId>slf4j-api</artifactId>-->
-        <!--            <version>${slf4j-api-version}</version>-->
-        <!--        </dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <!--此插件用于格式化代码，mvn spotless:check mvn spotless:apply -->
+<!--            <plugin>-->
+<!--                <groupId>com.diffplug.spotless</groupId>-->
+<!--                <artifactId>spotless-maven-plugin</artifactId>-->
+<!--                <version>${spotless-maven-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <java>-->
+<!--                        <eclipse>-->
+<!--                            &lt;!&ndash;<file>${maven.multiModuleProjectDirectory}/dev-support/samples_spotless_formatter.xml</file>&ndash;&gt;-->
+<!--                            <file>dev-support/samples_spotless_formatter.xml</file>-->
+<!--                        </eclipse>-->
+<!--                        <licenseHeader>-->
+<!--                            &lt;!&ndash;<file>${maven.multiModuleProjectDirectory}/dev-support/license-header</file>&ndash;&gt;-->
+<!--                            <file>dev-support/license-header</file>-->
+<!--                        </licenseHeader>-->
+<!--                    </java>-->
+<!--                </configuration>-->
+
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>apply</goal>-->
+<!--                        </goals>-->
+<!--                        <phase>compile</phase>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
+
+
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>flatten-maven-plugin</artifactId>-->
+<!--                <version>${maven-flatten.version}</version>-->
+<!--                <configuration>-->
+<!--                    <updatePomFile>true</updatePomFile>-->
+<!--                    <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>flatten</id>-->
+<!--                        <goals>-->
+<!--                            <goal>flatten</goal>-->
+<!--                        </goals>-->
+<!--                        <phase>process-resources</phase>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>flatten.clean</id>-->
+<!--                        <goals>-->
+<!--                            <goal>clean</goal>-->
+<!--                        </goals>-->
+<!--                        <phase>clean</phase>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+            <!--打包生成源码-->
+            <!-- <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-source-plugin</artifactId>
+                 <version>3.3.0</version>
+                 <executions>
+                     <execution>
+                         <id>attach-sources</id>
+                         <phase>package</phase>
+                         <goals>
+                             <goal>jar</goal>
+                         </goals>
+                     </execution>
+                 </executions>
+             </plugin>-->
+
+        </plugins>
+    </build>
+
 </project>
