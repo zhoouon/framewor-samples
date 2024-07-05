@@ -1,0 +1,2 @@
+com.framework.starter.datasource.configuration.DailyMartDsAutoConfiguration
+com.framework.starter.datasource.configuration.DailyMartMapperScanConfiguration

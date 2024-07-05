@@ -55,13 +55,29 @@
         <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <joda-time.version>2.10.13</joda-time.version>
+        <jmh.version>1.36</jmh.version>
+        <orika.version>1.5.4</orika.version>
+        <nimbus-jose-jwt.version>9.31</nimbus-jose-jwt.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
                 <groupId>com.framework</groupId>
-                <artifactId>logging-framework-starter</artifactId>
+                <artifactId>framework-logging-starter</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -91,6 +107,7 @@
                         <artifactId>junit-vintage-engine</artifactId>
                     </exclusion>
                 </exclusions>
+                <version>${springboot.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -269,6 +286,33 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
                 <version>${dynamic-datasource-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-generator-annprocess</artifactId>
+                <version>${jmh.version}</version>
+            </dependency>
+            <!--JMH测试 Start-->
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-core</artifactId>
+                <version>${jmh.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.version}</version>
+            </dependency>
+            <!--移走，不然太重了-->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mindrot</groupId>
+                <artifactId>jbcrypt</artifactId>
+                <version>${jbcrypt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

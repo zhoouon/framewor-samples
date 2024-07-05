@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>com.framework</groupId>
-            <artifactId>logging-framework-starter</artifactId>
+            <artifactId>framework-logging-starter</artifactId>
         </dependency>
     </dependencies>
 

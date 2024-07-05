@@ -72,6 +72,12 @@
             <groupId>com.baomidou</groupId>
             <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
         </dependency>
+        <!-- SnakeYaml就是用于解析YAML，序列化以及反序列化的第三方框架-->
+<!--        <dependency>-->
+<!--            <groupId>org.yaml</groupId>-->
+<!--            <artifactId>snakeyaml</artifactId>-->
+<!--            <version>1.33</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 <!--    <build>-->

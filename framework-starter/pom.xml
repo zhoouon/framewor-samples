@@ -17,7 +17,10 @@
     </properties>
 
     <modules>
-        <module>logging-framework-starter</module>
+        <module>framework-logging-starter</module>
+        <module>framework-id-starter</module>
+        <module>framework-datasource-starter</module>
+        <module>framework-common-starter</module>
     </modules>
 
     <dependencyManagement>
