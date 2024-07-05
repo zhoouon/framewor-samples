@@ -1,6 +1,7 @@
 package com.framework.starter.datasource.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.framework.starter.common.enums.DelEnum;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.time.LocalDateTime;
