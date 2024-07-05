@@ -5,9 +5,17 @@ spring:
   application:
     name: sharding-sphere
   profiles:
-    active: prod
+    active: dev
 
 ## mybatis-plus
 mybatis-plus:
-  mapper-locations: classpath*:mappler/*.xml
+  mapper-locations: classpath:/mapper/**.xml
   type-aliases-package: com.framework.shardingsphere.entity
+  configuration:
+    # MyBatis 配置
+    map-underscore-to-camel-case: true
+    global-config:
+      # 全局配置
+      db-config:
+        # 数据库配置
+        id-type: auto

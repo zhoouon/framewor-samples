@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @Author: zhoudong
- * @Description: TODO
+ * @Description: 分库分表启动类
  * @Date: 2024/4/2 15:15
  * @Version: 1.0.0
  **/

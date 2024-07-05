@@ -16,7 +16,10 @@
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.framework</groupId>
+            <artifactId>logging-framework-starter</artifactId>
         </dependency>
     </dependencies>
 

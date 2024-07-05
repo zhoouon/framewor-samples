@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.util.Date;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * @Author: zhoudong
@@ -17,6 +17,7 @@ import lombok.Data;
  * 设备信息
  */
 @Data
+@ToString(callSuper = true)
 @TableName(value = "sharding-sphere0.DEVICE_INFO")
 public class DeviceInfo extends BaseEntity {
     /**

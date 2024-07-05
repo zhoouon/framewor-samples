@@ -16,7 +16,6 @@
         <dependency>
             <groupId>com.framework</groupId>
             <artifactId>logging-framework-starter</artifactId>
-            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>

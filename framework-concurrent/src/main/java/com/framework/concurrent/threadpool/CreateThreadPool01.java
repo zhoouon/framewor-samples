@@ -24,7 +24,6 @@ public class CreateThreadPool01 {
             try {
                 Thread.sleep(1000);
                 System.out.println("world");
-                System.out.println(1/0);
             } catch (InterruptedException e) {
 
             }

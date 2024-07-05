@@ -1,5 +1,6 @@
 package com.framework.shardingsphere.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.framework.shardingsphere.entity.DeviceInfo;
 import com.framework.shardingsphere.mapper.DeviceInfoMapper;
@@ -17,7 +18,7 @@ import java.util.List;
  * @Date: 2024/4/2 15:41
  * @Version: 1.0.0
  **/
-@Service("deviceInfoService")
+@Service
 public class DeviceInfoServiceImpl extends ServiceImpl<DeviceInfoMapper, DeviceInfo> implements DeviceInfoService {
 
     @Autowired
@@ -31,11 +32,14 @@ public class DeviceInfoServiceImpl extends ServiceImpl<DeviceInfoMapper, DeviceI
 
     @Override
     public List<DeviceInfo> selectAll() {
-        return deviceInfoMapper.selectList(null);
+        LambdaQueryWrapper<DeviceInfo> queryWrapper = new LambdaQueryWrapper();
+        return deviceInfoMapper.selectList(queryWrapper);
     }
 
     @Override
     public Integer deleteById(Long id) {
-        return deviceInfoMapper.deleteById(id);
+        LambdaQueryWrapper<DeviceInfo> queryWrapper = new LambdaQueryWrapper();
+        queryWrapper.eq(DeviceInfo::getId, id);
+        return deviceInfoMapper.delete(queryWrapper);
     }
 }
