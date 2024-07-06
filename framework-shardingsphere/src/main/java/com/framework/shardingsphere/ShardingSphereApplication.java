@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0.0
  **/
 @SpringBootApplication
-@MapperScan(basePackages = {"com.framework.shardingsphere.mapper"})
+@MapperScan("com.framework.shardingsphere.mapper")
 public class ShardingSphereApplication {
     public static void main(String[] args) {
         SpringApplication.run(ShardingSphereApplication.class);

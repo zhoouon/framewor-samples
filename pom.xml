@@ -19,7 +19,6 @@
         <module>framework-minio</module>
         <module>framework-dom4j</module>
         <module>framework-starter</module>
-        <module>framework-dependencies</module>
     </modules>
 
     <properties>
@@ -32,7 +31,7 @@
         <springboot.version>3.2.4</springboot.version>
         <spring.cloud.version>2023.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
-        <spring.cloud.openfeign.version>3.1.8</spring.cloud.openfeign.version>
+        <spring.cloud.openfeign.version>4.1.2</spring.cloud.openfeign.version>
         <spotless-maven-plugin.version>2.22.1</spotless-maven-plugin.version>
         <maven-flatten.version>1.5.0</maven-flatten.version>
     </properties>
@@ -81,7 +80,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -100,32 +98,32 @@
     <build>
         <plugins>
             <!--此插件用于格式化代码，mvn spotless:check mvn spotless:apply -->
-<!--            <plugin>-->
-<!--                <groupId>com.diffplug.spotless</groupId>-->
-<!--                <artifactId>spotless-maven-plugin</artifactId>-->
-<!--                <version>${spotless-maven-plugin.version}</version>-->
-<!--                <configuration>-->
-<!--                    <java>-->
-<!--                        <eclipse>-->
-<!--                            &lt;!&ndash;<file>${maven.multiModuleProjectDirectory}/dev-support/samples_spotless_formatter.xml</file>&ndash;&gt;-->
-<!--                            <file>dev-support/samples_spotless_formatter.xml</file>-->
-<!--                        </eclipse>-->
-<!--                        <licenseHeader>-->
-<!--                            &lt;!&ndash;<file>${maven.multiModuleProjectDirectory}/dev-support/license-header</file>&ndash;&gt;-->
-<!--                            <file>dev-support/license-header</file>-->
-<!--                        </licenseHeader>-->
-<!--                    </java>-->
-<!--                </configuration>-->
+            <!--            <plugin>-->
+            <!--                <groupId>com.diffplug.spotless</groupId>-->
+            <!--                <artifactId>spotless-maven-plugin</artifactId>-->
+            <!--                <version>${spotless-maven-plugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <java>-->
+            <!--                        <eclipse>-->
+            <!--                            &lt;!&ndash;<file>${maven.multiModuleProjectDirectory}/dev-support/samples_spotless_formatter.xml</file>&ndash;&gt;-->
+            <!--                            <file>dev-support/samples_spotless_formatter.xml</file>-->
+            <!--                        </eclipse>-->
+            <!--                        <licenseHeader>-->
+            <!--                            &lt;!&ndash;<file>${maven.multiModuleProjectDirectory}/dev-support/license-header</file>&ndash;&gt;-->
+            <!--                            <file>dev-support/license-header</file>-->
+            <!--                        </licenseHeader>-->
+            <!--                    </java>-->
+            <!--                </configuration>-->
 
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>apply</goal>-->
-<!--                        </goals>-->
-<!--                        <phase>compile</phase>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <goals>-->
+            <!--                            <goal>apply</goal>-->
+            <!--                        </goals>-->
+            <!--                        <phase>compile</phase>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
 
 
             <plugin>
@@ -138,31 +136,31 @@
             </plugin>
 
 
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>flatten-maven-plugin</artifactId>-->
-<!--                <version>${maven-flatten.version}</version>-->
-<!--                <configuration>-->
-<!--                    <updatePomFile>true</updatePomFile>-->
-<!--                    <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>flatten</id>-->
-<!--                        <goals>-->
-<!--                            <goal>flatten</goal>-->
-<!--                        </goals>-->
-<!--                        <phase>process-resources</phase>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>flatten.clean</id>-->
-<!--                        <goals>-->
-<!--                            <goal>clean</goal>-->
-<!--                        </goals>-->
-<!--                        <phase>clean</phase>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven-flatten.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <phase>clean</phase>
+                    </execution>
+                </executions>
+            </plugin>
 
             <!--打包生成源码-->
             <!-- <plugin>

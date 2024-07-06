@@ -1,6 +1,5 @@
 server:
   port: 9891
-## spring
 spring:
   application:
     name: sharding-sphere
@@ -12,10 +11,14 @@ mybatis-plus:
   mapper-locations: classpath:/mapper/**.xml
   type-aliases-package: com.framework.shardingsphere.entity
   configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # MyBatis 配置
     map-underscore-to-camel-case: true
     global-config:
       # 全局配置
       db-config:
         # 数据库配置
-        id-type: auto
+#        id-type: auto
+logging:
+  level:
+    org.apache.shardingsphere: debug
