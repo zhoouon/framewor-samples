@@ -29,7 +29,7 @@
         <fastjson.version>1.2.83</fastjson.version>
         <springboot.version>3.2.4</springboot.version>
 <!--        <sharding-sphere.version>5.2.1</sharding-sphere.version>-->
-        <shardingsphere.version>5.4.0</shardingsphere.version>
+        <shardingsphere.version>5.4.1</shardingsphere.version>
         <redisson-spring-boot-starter.version>3.23.4</redisson-spring-boot-starter.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <mybatis-plus-dynamic.version>4.3.0</mybatis-plus-dynamic.version>
@@ -373,20 +373,6 @@
     </dependencyManagement>
 
 
-    <!--    <distributionManagement>-->
-    <!--        <repository>-->
-    <!--            <id>mvn-releases</id>-->
-    <!--            <url>-->
-    <!--                https://depend.iflytek.com/artifactory/xxb-mvn-release-private/-->
-    <!--            </url>-->
-    <!--        </repository>-->
-    <!--        <snapshotRepository>-->
-    <!--            <id>mvn-snapshots</id>-->
-    <!--            <url>-->
-    <!--                https://depend.iflytek.com/artifactory/xxb-mvn-snapshot-private/-->
-    <!--            </url>-->
-    <!--        </snapshotRepository>-->
-    <!--    </distributionManagement>-->
     <build>
         <plugins>
             <plugin>

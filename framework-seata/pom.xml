@@ -7,7 +7,7 @@
         <version>${revision}</version>
     </parent>
     <artifactId>framework-seata</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>framework-seata</name>
     <description>Seata练习</description>
 
