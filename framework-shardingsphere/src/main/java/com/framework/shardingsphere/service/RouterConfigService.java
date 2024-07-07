@@ -12,7 +12,7 @@ import java.util.List;
  **/
 public interface RouterConfigService {
 
-    Boolean add(RouterConfig routerConfig);
+    Integer add(RouterConfig routerConfig);
 
     Integer deleteById(Long id);
 

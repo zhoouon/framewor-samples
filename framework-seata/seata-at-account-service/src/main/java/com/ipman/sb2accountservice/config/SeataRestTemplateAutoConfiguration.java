@@ -1,6 +1,7 @@
 package com.ipman.sb2accountservice.config;
 
 import com.ipman.sb2accountservice.interceptor.SeataRestTemplateInterceptor;
+import jakarta.annotation.PostConstruct;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -8,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;

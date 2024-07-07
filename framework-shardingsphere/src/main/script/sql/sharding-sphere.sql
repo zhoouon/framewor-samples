@@ -19,10 +19,10 @@ SET
 FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for router_config
+-- Table structure for router_config_0
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config`;
-CREATE TABLE `router_config`
+DROP TABLE IF EXISTS `router_config_0`;
+CREATE TABLE `router_config_0`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -36,39 +36,14 @@ CREATE TABLE `router_config`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
--- Records of router_config
--- ----------------------------
 BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_00
+-- Table structure for router_config_1
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_00`;
-CREATE TABLE `router_config_00`
-(
-    `id` BIGINT NOT NULL AUTO_INCREMENT,
-    `repay_no` varchar(50) NOT NULL,
-    `wifi_name` varchar(255)  DEFAULT NULL,
-    `wifi_password` varchar(255)  DEFAULT NULL,
-    `wifi_switch` int(2)  DEFAULT NULL,
-    `encrypt_type` int(2)  DEFAULT NULL,
-    `admin_password` varchar(255)  DEFAULT NULL,
-    `hide_switch` int(2)  DEFAULT NULL,
-    PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
-
--- ----------------------------
--- Records of router_config_00
--- ----------------------------
-BEGIN;
-COMMIT;
-
--- ----------------------------
--- Table structure for router_config_01
--- ----------------------------
-DROP TABLE IF EXISTS `router_config_01`;
-CREATE TABLE `router_config_01`
+DROP TABLE IF EXISTS `router_config_1`;
+CREATE TABLE `router_config_1`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -88,10 +63,10 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_02
+-- Table structure for router_config_2
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_02`;
-CREATE TABLE `router_config_02`
+DROP TABLE IF EXISTS `router_config_2`;
+CREATE TABLE `router_config_2`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -111,10 +86,10 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_03
+-- Table structure for router_config_3
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_03`;
-CREATE TABLE `router_config_03`
+DROP TABLE IF EXISTS `router_config_3`;
+CREATE TABLE `router_config_3`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -134,10 +109,10 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_04
+-- Table structure for router_config_4
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_04`;
-CREATE TABLE `router_config_04`
+DROP TABLE IF EXISTS `router_config_4`;
+CREATE TABLE `router_config_4`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -157,10 +132,10 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_05
+-- Table structure for router_config_5
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_05`;
-CREATE TABLE `router_config_05`
+DROP TABLE IF EXISTS `router_config_5`;
+CREATE TABLE `router_config_5`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -180,10 +155,10 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_06
+-- Table structure for router_config_6
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_06`;
-CREATE TABLE `router_config_06`
+DROP TABLE IF EXISTS `router_config_6`;
+CREATE TABLE `router_config_6`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -197,16 +172,16 @@ CREATE TABLE `router_config_06`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of router_config_06
+-- Records of router_config_6
 -- ----------------------------
 BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_07
+-- Table structure for router_config_7
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_07`;
-CREATE TABLE `router_config_07`
+DROP TABLE IF EXISTS `router_config_7`;
+CREATE TABLE `router_config_7`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -220,16 +195,16 @@ CREATE TABLE `router_config_07`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of router_config_07
+-- Records of router_config_7
 -- ----------------------------
 BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_08
+-- Table structure for router_config_8
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_08`;
-CREATE TABLE `router_config_08`
+DROP TABLE IF EXISTS `router_config_8`;
+CREATE TABLE `router_config_8`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -243,16 +218,16 @@ CREATE TABLE `router_config_08`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of router_config_08
+-- Records of router_config_8
 -- ----------------------------
 BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_09
+-- Table structure for router_config_9
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_09`;
-CREATE TABLE `router_config_09`
+DROP TABLE IF EXISTS `router_config_9`;
+CREATE TABLE `router_config_9`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -266,7 +241,7 @@ CREATE TABLE `router_config_09`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of router_config_09
+-- Records of router_config_9
 -- ----------------------------
 BEGIN;
 COMMIT;
@@ -772,10 +747,10 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for router_config_2
+-- Table structure for router_config_32
 -- ----------------------------
-DROP TABLE IF EXISTS `router_config_2`;
-CREATE TABLE `router_config_2`
+DROP TABLE IF EXISTS `router_config_32`;
+CREATE TABLE `router_config_32`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `repay_no` varchar(50) NOT NULL,
@@ -789,7 +764,7 @@ CREATE TABLE `router_config_2`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of router_config_2
+-- Records of router_config_32
 -- ----------------------------
 BEGIN;
 COMMIT;

@@ -18,7 +18,7 @@ mybatis-plus:
       # 全局配置
       db-config:
         # 数据库配置
-#        id-type: auto
+        id-type: auto
 logging:
   level:
     org.apache.shardingsphere: debug

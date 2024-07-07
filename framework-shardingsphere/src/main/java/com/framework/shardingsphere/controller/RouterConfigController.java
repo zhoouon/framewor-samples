@@ -26,7 +26,7 @@ public class RouterConfigController {
     private RouterConfigService routerConfigService;
 
     @PostMapping("/save")
-    public Boolean add(@RequestBody RouterConfig routerConfig) {
+    public Integer add(@RequestBody RouterConfig routerConfig) {
         return routerConfigService.add(routerConfig);
     }
 
