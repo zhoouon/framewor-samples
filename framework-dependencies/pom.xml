@@ -32,6 +32,7 @@
         <shardingsphere.version>5.4.1</shardingsphere.version>
         <redisson-spring-boot-starter.version>3.23.4</redisson-spring-boot-starter.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <mybatis-plus-dynamic.version>4.3.0</mybatis-plus-dynamic.version>
         <mysql.version>8.0.33</mysql.version>
         <druid-spring.version>1.2.23</druid-spring.version>
@@ -211,6 +212,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>
