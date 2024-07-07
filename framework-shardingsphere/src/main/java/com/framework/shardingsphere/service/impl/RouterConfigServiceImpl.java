@@ -48,7 +48,7 @@ public class RouterConfigServiceImpl extends ServiceImpl<RouterConfigMapper, Rou
     public IPage<RouterConfig> selectAll(Integer pageNum, Integer pageSize) {
         Page<RouterConfig> page = new Page<>(pageNum, pageSize);
         LambdaQueryWrapper<RouterConfig> wrapper = Wrappers.lambdaQuery();
-        wrapper.orderBy(true, true, RouterConfig::getUpdateTime);
+        wrapper.orderBy(true, false, RouterConfig::getUpdateTime);
         return this.page(page,wrapper);
     }
 

@@ -1,5 +1,6 @@
 package com.framework.starter.openfeign.configuration;
 
+import com.framework.starter.web.RequestHeaderHolder;
 import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
