@@ -21,6 +21,8 @@
         <module>framework-id-starter</module>
         <module>framework-datasource-starter</module>
         <module>framework-common-starter</module>
+        <module>framework-openfeign-starter</module>
+        <module>framework-web-starter</module>
     </modules>
 
     <dependencyManagement>

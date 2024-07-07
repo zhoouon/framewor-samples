@@ -4,27 +4,33 @@
     <parent>
         <groupId>com.framework</groupId>
         <artifactId>framework-samples</artifactId>
-        <version>${revision}</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>framework-seata</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
+    <name>framework-seata</name>
     <description>Seata练习</description>
-
-    <modules>
-        <module>seata-at-account-service</module>
-        <module>seata-at-business-service</module>
-        <module>seata-at-order-service</module>
-        <module>seata-at-storage-service</module>
-    </modules>
 
     <dependencies>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
         </dependency>
     </dependencies>
 </project>

@@ -4,38 +4,20 @@
     <parent>
         <groupId>com.framework</groupId>
         <artifactId>framework-samples</artifactId>
-        <version>${revision}</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <groupId>com.framework</groupId>
+    <groupId>org.redis</groupId>
     <artifactId>framework-redis</artifactId>
-    <description>Redis Lock</description>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>framework-redis</name>
+    <description>Redission练习</description>
 
     <dependencies>
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
+            <version>3.16.1</version>
         </dependency>
     </dependencies>
 

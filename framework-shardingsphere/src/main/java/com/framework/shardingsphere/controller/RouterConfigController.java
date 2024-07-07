@@ -1,23 +1,20 @@
 package com.framework.shardingsphere.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.framework.shardingsphere.entity.RouterConfig;
 import com.framework.shardingsphere.service.RouterConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
- * @Author: zhoudong
- * @Description: TODO
- * @Date: 2024-07-06 14:38
- * @Version: 1.0.0
- **/
+ * @Description: 路由器配置控制层
+ * @Author: junqiang.lu
+ * @Date: 2022/4/1
+ */
 @RestController
 @RequestMapping(value = "/api/router/config")
 public class RouterConfigController {
@@ -25,23 +22,30 @@ public class RouterConfigController {
     @Autowired
     private RouterConfigService routerConfigService;
 
-    @PostMapping("/save")
-    public Boolean add(@RequestBody RouterConfig routerConfig) {
-        return routerConfigService.add(routerConfig);
+    /**
+     * 路由器配置新增单条
+     *
+     * @param routerConfig
+     * @return
+     */
+    @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<RouterConfig> add(@RequestBody RouterConfig routerConfig) {
+        return ResponseEntity.ok(routerConfigService.insert(routerConfig));
+    }
+
+    /**
+     * 路由器配置查询单条
+     *
+     * @return
+     */
+    @GetMapping(value = "/findAllByPage", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public IPage<RouterConfig> findAllByPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+        return routerConfigService.selectAll(pageNum, pageSize);
     }
 
     @DeleteMapping("/deleteById")
-    public Integer deleteById(@RequestParam Long id) {
+    public Integer delete(@RequestParam Long id) {
         return routerConfigService.deleteById(id);
     }
 
-    @PostMapping("/selectAll")
-    public List<RouterConfig> selectAll() {
-        return routerConfigService.selectAll();
-    }
-
-    @PostMapping("/selectById")
-    public RouterConfig selectById(@RequestParam Long id) {
-        return routerConfigService.selectById(id);
-    }
 }

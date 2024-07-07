@@ -1,44 +1,36 @@
 ## 分库,分表
 spring:
-  datasource:
-    dynamic:
-      hikari:
-        pool-name: sharding-sphere
-        minimum-idle: 5 #最小空闲连接数量
-        idle-timeout: 120000 #空闲连接存活最大时间，默认600000（10分钟）
-        maximum-pool-size: 10 #连接池最大连接数，默认是10
-        auto-commit: true  #此属性控制从池返回的连接的默认自动提交行为,默认值：true
-        max-lifetime: 1800000 #此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
-        connection-timeout: 30000 #数据库连接超时时间,默认30秒，即30000
-        connection-test-query: SELECT 1
   shardingsphere:
     mode:
       type: Standalone
       repository:
-        type: JDBC
+        type: File
       overwrite: true
     datasource:
       names: ds0,ds1
       ds0:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/sharding-sphere0?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true
+        jdbc-url: "jdbc:mysql://127.0.0.1:3306/sharding-sphere0?useUnicode=true&characterEncoding=utf8\
+                    &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+                    &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
         username: root
-        password: 123456
+        password: 12345678
       ds1:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/sharding-sphere1?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true
+        jdbc-url: "jdbc:mysql://127.0.0.1:3306/sharding-sphere1?useUnicode=true&characterEncoding=utf8\
+                          &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+                          &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
         username: root
-        password: 123456
-    # 分片的配置
+        password: 12345678
     rules:
       sharding:
         default-database-strategy:
           standard:
             sharding-column: id
             sharding-algorithm-name: database-inline
-        tables:  # 表的分片策略
+        tables:
           router_config:
             actual-data-nodes: ds$->{0..1}.router_config_$->{0..2}
             table-strategy:
@@ -62,6 +54,5 @@ spring:
             type: SNOWFLAKE
     props:
       sql-show: true
-      sql-comment-parse-enabled: true
   main:
     allow-bean-definition-overriding: true

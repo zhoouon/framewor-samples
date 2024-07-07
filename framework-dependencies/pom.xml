@@ -32,6 +32,7 @@
         <shardingsphere.version>5.4.0</shardingsphere.version>
         <redisson-spring-boot-starter.version>3.23.4</redisson-spring-boot-starter.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <mybatis-plus-dynamic.version>4.3.0</mybatis-plus-dynamic.version>
         <mysql.version>8.0.33</mysql.version>
         <druid-spring.version>1.2.23</druid-spring.version>
         <dynamic-datasource-spring.version>3.5.0</dynamic-datasource-spring.version>
@@ -46,9 +47,9 @@
         <aspectjrt.verison>1.9.19</aspectjrt.verison>
         <aspectjweaver.version>1.9.2</aspectjweaver.version>
         <seata-spring-boot.version>1.0.0</seata-spring-boot.version>
-        <jaxb-impl.version>2.3.3</jaxb-impl.version>
-        <jaxb-runtime.version>2.3.8</jaxb-runtime.version>
+        <jaxb-impl.version>2.3.1</jaxb-impl.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
+        <jaxb-runtime.version>10.0.2</jaxb-runtime.version>
         <slf4j-api.version>1.7.36</slf4j-api.version>
         <logback-core.version>1.2.3</logback-core.version>
         <logback-classic.version>1.2.3</logback-classic.version>
@@ -60,8 +61,9 @@
         <orika.version>1.5.4</orika.version>
         <nimbus-jose-jwt.version>9.31</nimbus-jose-jwt.version>
         <jbcrypt.version>0.4</jbcrypt.version>
-        <snakeyaml.version>2.2</snakeyaml.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <junit.version>4.13.2</junit.version>
+        <druid.version>1.2.23</druid.version>
     </properties>
 
     <dependencyManagement>
@@ -84,6 +86,16 @@
             <dependency>
                 <groupId>com.framework</groupId>
                 <artifactId>framework-logging-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.framework</groupId>
+                <artifactId>framework-web-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.framework</groupId>
+                <artifactId>framework-openfeign-starter</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -152,6 +164,11 @@
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-infra-spi</artifactId>
                 <version>${shardingsphere.version}</version>
             </dependency>
             <dependency>
@@ -342,51 +359,61 @@
                 <artifactId>jaxb-api</artifactId>
                 <version>${jaxb-api.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus-dynamic.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
 
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>mvn-releases</id>-->
-<!--            <url>-->
-<!--                https://depend.iflytek.com/artifactory/xxb-mvn-release-private/-->
-<!--            </url>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <id>mvn-snapshots</id>-->
-<!--            <url>-->
-<!--                https://depend.iflytek.com/artifactory/xxb-mvn-snapshot-private/-->
-<!--            </url>-->
-<!--        </snapshotRepository>-->
-<!--    </distributionManagement>-->
+    <!--    <distributionManagement>-->
+    <!--        <repository>-->
+    <!--            <id>mvn-releases</id>-->
+    <!--            <url>-->
+    <!--                https://depend.iflytek.com/artifactory/xxb-mvn-release-private/-->
+    <!--            </url>-->
+    <!--        </repository>-->
+    <!--        <snapshotRepository>-->
+    <!--            <id>mvn-snapshots</id>-->
+    <!--            <url>-->
+    <!--                https://depend.iflytek.com/artifactory/xxb-mvn-snapshot-private/-->
+    <!--            </url>-->
+    <!--        </snapshotRepository>-->
+    <!--    </distributionManagement>-->
     <build>
         <plugins>
-            <!--            <plugin>-->
-            <!--                <groupId>org.codehaus.mojo</groupId>-->
-            <!--                <artifactId>flatten-maven-plugin</artifactId>-->
-            <!--                <version>${maven-flatten.version}</version>-->
-            <!--                <configuration>-->
-            <!--                    <updatePomFile>true</updatePomFile>-->
-            <!--                    <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
-            <!--                </configuration>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <id>flatten</id>-->
-            <!--                        <goals>-->
-            <!--                            <goal>flatten</goal>-->
-            <!--                        </goals>-->
-            <!--                        <phase>process-resources</phase>-->
-            <!--                    </execution>-->
-            <!--                    <execution>-->
-            <!--                        <id>flatten.clean</id>-->
-            <!--                        <goals>-->
-            <!--                            <goal>clean</goal>-->
-            <!--                        </goals>-->
-            <!--                        <phase>clean</phase>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven-flatten.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <phase>clean</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

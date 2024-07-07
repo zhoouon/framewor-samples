@@ -14,7 +14,7 @@ import java.lang.reflect.Proxy;
  * @Date: 2024/3/24 16:23
  * @Version: 1.0.0
  **/
-//@Slf4j
+@Slf4j
 public class JdkProxy implements InvocationHandler {
 
     private Object target;
@@ -37,9 +37,9 @@ public class JdkProxy implements InvocationHandler {
     // 第一个参数:代理对象.一般不使用;第二个参数:需要增强的方法;第三个参数:方法中的参数
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        //log.info("这是jdk动态代理增强方法之前");
+        log.info("这是jdk动态代理增强方法之前");
         Object invoke = method.invoke(target, args);
-        //log.info("这是jdk动态代理增强方法之后");
+        log.info("这是jdk动态代理增强方法之后");
         return invoke;
     }
 

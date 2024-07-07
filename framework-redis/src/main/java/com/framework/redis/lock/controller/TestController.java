@@ -2,8 +2,8 @@ package com.framework.redis.lock.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.framework.redis.lock.annotation.RedissonLockAnnotation;
-import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;

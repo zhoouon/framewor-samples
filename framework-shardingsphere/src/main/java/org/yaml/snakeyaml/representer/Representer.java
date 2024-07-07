@@ -13,6 +13,7 @@
  */
 package org.yaml.snakeyaml.representer;
 
+import org.springframework.context.annotation.Configuration;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.DumperOptions.FlowStyle;
 import org.yaml.snakeyaml.TypeDescription;
@@ -37,8 +38,15 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 高版本 snakeyaml 在 spring-boot-autoconfigure 加载配置文件时报错
+ *  java.lang.NoSuchMethodError: org.yaml.snakeyaml.***.***: method <init>()V not found
+ *  覆盖源码，添加无参构造函数
+ *  public Representer() {
+ *  super(new DumperOptions());
+ *  this.representers.put(null, new RepresentJavaBean());
  * Represent JavaBeans
  */
+@Configuration
 public class Representer extends SafeRepresenter {
 
     protected Map<Class<? extends Object>, TypeDescription> typeDefinitions = Collections.emptyMap();

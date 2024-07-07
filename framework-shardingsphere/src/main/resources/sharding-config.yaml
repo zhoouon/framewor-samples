@@ -2,7 +2,7 @@ dataSources:
   ds0:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    jdbcUrl: jdbc:mysql://localhost:3306/sharding-sphere?characterEncoding=utf8&useAffectedRows=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/sharding-sphere?characterEncoding=utf8&useAffectedRows=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 123456
 
@@ -19,9 +19,9 @@ rules:
           standard:
             shardingColumn: id #分表列
             shardingAlgorithmName: id-suffix-mode-50 #分表算法名称，与下面对应
-    shardingAlgorithms:
+    shardingAlgorithms: # 分片算法配置
       id-suffix-mode-50:
-        type: INLINE
+        type: INLINE # 基于行表达式的分片算法
         props:
           #分片表达式，groovy 脚本
           algorithm-expression: router_config_$->{String.valueOf(Long.parseLong(String.valueOf(id).substring(String.valueOf(id).size() - 2)) % 50 ).padLeft(2,'0')}
