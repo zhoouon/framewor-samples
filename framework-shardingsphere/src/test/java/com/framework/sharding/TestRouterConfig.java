@@ -82,4 +82,18 @@ public class TestRouterConfig {
 
     }
 
+    /**
+     * @param
+     * @return: void
+     * @description: 获取CPU核心线程数
+     * @author: zhoudong
+     * @date: 2024-07-08 13:53
+     */
+    @Test
+    public void getCpu(){
+        Runtime runtime = Runtime.getRuntime();
+        System.out.println(runtime.availableProcessors());
+
+    }
+
 }

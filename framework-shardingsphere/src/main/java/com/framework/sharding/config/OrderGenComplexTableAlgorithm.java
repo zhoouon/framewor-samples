@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * 基于基因拼接算法的复合分片算法,基于主键ID 和 repay_no 组成
+ * 基于基因拼接算法的复合分片算法,基于主键ID
  */
 public class OrderGenComplexTableAlgorithm implements ComplexKeysShardingAlgorithm<Comparable<?>> {
 
@@ -62,16 +62,17 @@ public class OrderGenComplexTableAlgorithm implements ComplexKeysShardingAlgorit
                     long tableNameSuffix = (Long) comparable % shardingCount;
                     result.add(shardingValue.getLogicTableName() + "_" + tableNameSuffix);
                 });
-            } else {
-                Collection<Comparable<?>> orderSnCollection = columnNameAndShardingValuesMap.get(REPAY_NO_COLUMN);
-                orderSnCollection.stream().findFirst().ifPresent(comparable -> {
-                    String repayNo = String.valueOf(comparable);
-                    // 获取ID基因
-                    String substring = repayNo.substring(Math.max(0, repayNo.length() - 6));
-                    long tableNameSuffix = Long.parseLong(substring) % shardingCount;
-                    result.add(shardingValue.getLogicTableName() + "_" + tableNameSuffix);
-                });
             }
+            //else {
+            //    Collection<Comparable<?>> orderSnCollection = columnNameAndShardingValuesMap.get(REPAY_NO_COLUMN);
+            //    orderSnCollection.stream().findFirst().ifPresent(comparable -> {
+            //        String repayNo = String.valueOf(comparable);
+            //        // 获取ID基因
+            //        String substring = repayNo.substring(Math.max(0, repayNo.length() - 6));
+            //        long tableNameSuffix = Long.parseLong(substring) % shardingCount;
+            //        result.add(shardingValue.getLogicTableName() + "_" + tableNameSuffix);
+            //    });
+            //}
         }
         return result;
 

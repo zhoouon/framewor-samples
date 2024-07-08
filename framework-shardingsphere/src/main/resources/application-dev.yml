@@ -32,4 +32,4 @@ spring:
             table-strategy:
               complex:
                 sharding-algorithm-name: id-suffix-mode-50
-                sharding-columns: id,repay_no
+                sharding-columns: id
