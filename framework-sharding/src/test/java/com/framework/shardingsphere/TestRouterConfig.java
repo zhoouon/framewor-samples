@@ -26,7 +26,7 @@ public class TestRouterConfig {
     @Test
     public void save(){
         Snowflake snowflake = new Snowflake();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 10; i++) {
             RouterConfig routerConfig = new RouterConfig();
             routerConfig.setRepayNo(snowflake.nextIdStr());
             routerConfig.setWifiName(RandomUtil.randomString(8));

@@ -9,7 +9,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>framework-shardingsphere</artifactId>
+    <artifactId>framework-sharding</artifactId>
     <description>mysql分库分表</description>
     <packaging>jar</packaging>
 
