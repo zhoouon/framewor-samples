@@ -28,7 +28,6 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <fastjson.version>1.2.83</fastjson.version>
         <springboot.version>3.2.4</springboot.version>
-<!--        <sharding-sphere.version>5.2.1</sharding-sphere.version>-->
         <sharding-sphere.version>5.2.1</sharding-sphere.version>
         <redisson-spring-boot-starter.version>3.23.4</redisson-spring-boot-starter.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
@@ -101,12 +100,6 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>${springboot.version}</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${springboot.version}</version>
                 <optional>true</optional>
@@ -162,21 +155,11 @@
                 <artifactId>commons-beanutils</artifactId>
                 <version>${commons-beanutils.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.apache.shardingsphere</groupId>-->
-<!--                <artifactId>shardingsphere-jdbc-core</artifactId>-->
-<!--                <version>${shardings-phere.version}</version>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
                 <version>${sharding-sphere.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.apache.shardingsphere</groupId>-->
-<!--                <artifactId>shardingsphere-infra-spi</artifactId>-->
-<!--                <version>${sharding-sphere.version}</version>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>org.apache.skywalking</groupId>
                 <artifactId>apm-toolkit-trace</artifactId>
