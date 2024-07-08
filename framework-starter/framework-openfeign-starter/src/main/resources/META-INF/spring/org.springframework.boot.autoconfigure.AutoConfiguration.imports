@@ -1,0 +1,2 @@
+com.framework.starter.openfeign.configuration.SamplesFeignAutoConfiguration
+com.framework.starter.openfeign.configuration.FeignRequestConfiguration
