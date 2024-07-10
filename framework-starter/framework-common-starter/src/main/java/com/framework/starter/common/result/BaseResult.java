@@ -24,8 +24,6 @@ public class BaseResult<T> implements Serializable {
     private static final String SUCCESS_TIPS = "操作成功";
     public static final String DEFAULT_ERROR_CODE = "99999999";
     public static final String DEFAULT_FAIL_TIPS = "系统异常，请联系管理员";
-    private static final String DEFAULT_UNKNOWN_MESSAGE = "交易结果未知";
-    private static final String DEFAULT_UNKNOWN_TIPS = "交易结果未知，请联系业务人员手动处理";
     private static final Integer ERROR_MESSAGE_MAX_LENGTH = 1000;
     private String type;
     private String code;
@@ -52,11 +50,11 @@ public class BaseResult<T> implements Serializable {
     }
 
     public static <T> BaseResult<T> buildSuccessData() {
-        return (new Builder()).buildType("S").buildCode("000000000").buildMessage("成功").buildTips("操作成功").build();
+        return (new Builder()).buildType("S").buildCode("00000000").buildMessage("成功").buildTips("操作成功").build();
     }
 
     public static <T> BaseResult<T> buildSuccessData(T data) {
-        return (new Builder()).buildType("S").buildCode("000000000").buildMessage("成功").buildTips("操作成功").buildData(data).build();
+        return (new Builder()).buildType("S").buildCode("00000000").buildMessage("成功").buildTips("操作成功").buildData(data).build();
     }
 
     public static <T> BaseResult<T> buildFailWithCode(String errorCode) {
@@ -89,15 +87,15 @@ public class BaseResult<T> implements Serializable {
     }
 
     public static <T> BaseResult<T> buildFailWithMessage(String errorMessage) {
-        return (new Builder()).buildType("E").buildCode("999999999").buildMessage(errorMessage).buildTips("系统异常，请联系管理员").build();
+        return (new Builder()).buildType("E").buildCode("99999999").buildMessage(errorMessage).buildTips("系统异常，请联系管理员").build();
     }
 
     public static <T> BaseResult<T> buildFailWithMessageAndTips(String errorMessage, String tips) {
-        return (new Builder()).buildType("E").buildCode("999999999").buildMessage(errorMessage).buildTips(tips).build();
+        return (new Builder()).buildType("E").buildCode("99999999").buildMessage(errorMessage).buildTips(tips).build();
     }
 
     public static <T> BaseResult<T> buildFailWithMessageAndData(String errorMessage, T data) {
-        return (new Builder()).buildType("E").buildCode("999999999").buildMessage(errorMessage).buildData(data).build();
+        return (new Builder()).buildType("E").buildCode("99999999").buildMessage(errorMessage).buildData(data).build();
     }
 
     public static <T> BaseResult<T> buildFail(SamplesApplicationException exception) {
