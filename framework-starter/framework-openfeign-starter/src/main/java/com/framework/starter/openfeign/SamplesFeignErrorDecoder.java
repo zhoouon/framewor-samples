@@ -2,7 +2,7 @@ package com.framework.starter.openfeign;
 
 import com.framework.starter.common.exception.ErrorCode;
 import com.framework.starter.common.exception.RemoteException;
-import com.framework.starter.common.result.Result;
+import com.framework.starter.common.result.BaseResult;
 import com.framework.starter.common.toolkit.JsonUtils;
 import feign.Response;
 import feign.codec.ErrorDecoder;
@@ -31,7 +31,7 @@ public class SamplesFeignErrorDecoder implements ErrorDecoder {
         try {
             Reader reader = response.body().asReader(Charset.defaultCharset());
             // Result<?> result = objectMapper.readValue(reader, objectMapper.constructType(Result.class));
-            Result<?> result = JsonUtils.reader2Obj(reader, Result.class);
+            BaseResult<?> result = JsonUtils.reader2Obj(reader, BaseResult.class);
             return new RemoteException(result.getCode(), result.getMessage());
         } catch (IOException e) {
             log.error("Response转换异常", e);

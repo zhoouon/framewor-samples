@@ -1,7 +1,7 @@
 package com.framework.starter.common.toolkit;
 
 import cn.hutool.crypto.SecureUtil;
-import com.framework.starter.common.exception.BusinessException;
+import com.framework.starter.common.exception.BaseException;
 import com.framework.starter.common.exception.ErrorCode;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -48,14 +48,14 @@ public class JwtUtil {
         JWSVerifier jwsVerifier = new MACVerifier(SecureUtil.md5(SECRET_KEY));
 
         if (!signedJWT.verify(jwsVerifier)) {
-            throw new BusinessException(ErrorCode.JWT_PARSE_ERROR, "Token签名不合法");
+            throw new BaseException(ErrorCode.JWT_PARSE_ERROR.getCode(), "Token签名不合法");
         }
 
         // 验证过期时间
         Date expirationTime = signedJWT.getJWTClaimsSet().getExpirationTime();
 
         if (expirationTime == null || expirationTime.before(new Date())) {
-            throw new BusinessException(ErrorCode.JWT_PARSE_ERROR, "Token已过期");
+            throw new BaseException(ErrorCode.JWT_PARSE_ERROR.getMessage(), "Token已过期");
         }
 
         return signedJWT.getJWTClaimsSet().getSubject();

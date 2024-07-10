@@ -1,6 +1,6 @@
 package com.framework.starter.web;
 
-import com.framework.starter.common.result.Result;
+import com.framework.starter.common.result.BaseResult;
 import com.framework.starter.common.toolkit.JsonUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -43,18 +43,18 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request,
                                   ServerHttpResponse response) {
         if (body == null) {
-            return JsonUtils.obj2String(ResultFactory.success(""));
+            return JsonUtils.obj2String(BaseResult.buildSuccessData(""));
         }
         if (body instanceof String) {
             // 当响应体是String类型时，使用ObjectMapper转换，因为Spring默认使用StringHttpMessageConverter处理字符串，不会将字符串识别为JSON
             // return objectMapper.writeValueAsString(ResultFactory.success(body));
-            return JsonUtils.obj2String(ResultFactory.success(body));
+            return JsonUtils.obj2String(BaseResult.buildSuccessData(body));
         }
-        if (body instanceof Result<?>) {
+        if (body instanceof BaseResult<?>) {
             // 已经包装过的结果无需再次包装
             return body;
         }
         // 对响应体进行包装
-        return ResultFactory.success(body);
+        return BaseResult.buildSuccessData(body);
     }
 }

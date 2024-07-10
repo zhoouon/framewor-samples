@@ -1,1 +1,3 @@
 com.framework.starter.common.configuration.BaseAutoConfiguration
+com.framework.starter.common.exception.ExceptionCodeCache
+com.framework.starter.common.aop.ExceptionAspect

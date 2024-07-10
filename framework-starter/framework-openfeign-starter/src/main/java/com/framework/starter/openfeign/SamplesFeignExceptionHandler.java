@@ -1,8 +1,8 @@
 package com.framework.starter.openfeign;
 
-import com.framework.starter.common.exception.AbstractException;
 import com.framework.starter.common.exception.ErrorCode;
 import com.framework.starter.common.exception.RemoteException;
+import com.framework.starter.common.exception.SamplesApplicationException;
 import com.framework.starter.common.result.Result;
 import feign.FeignException;
 import feign.codec.DecodeException;
@@ -36,11 +36,11 @@ public class SamplesFeignExceptionHandler {
     public Result<?> handleDecodeException(DecodeException e) {
         log.error("Feign Decode Error: ", e);
         Throwable cause = e.getCause();
-        if (cause instanceof AbstractException) {
+        if (cause instanceof SamplesApplicationException) {
             RemoteException remoteException = (RemoteException) cause;
             // 上游符合全局响应包装约定的再次抛出即可
             return new Result<Void>()
-                    .setCode(remoteException.getCode())
+                    .setCode(remoteException.getMessageKey())
                     .setMessage(remoteException.getMessage())
                     .setTimestamp(System.currentTimeMillis());
         }

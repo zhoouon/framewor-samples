@@ -5,13 +5,13 @@ import java.io.Serial;
 /**
  * 远程调用异常
  */
-public class RemoteException extends AbstractException {
+public class RemoteException extends SamplesApplicationException {
 
     @Serial
     private static final long serialVersionUID = -3095639653937569308L;
 
     public RemoteException() {
-        super(ErrorCode.REMOTE_ERROR, null, null);
+        super(null, null, ErrorCode.REMOTE_ERROR);
     }
 
     public RemoteException(ErrorCode errorCode) {
@@ -19,7 +19,7 @@ public class RemoteException extends AbstractException {
     }
 
     public RemoteException(ErrorCode errorCode, String message, Throwable throwable) {
-        super(errorCode, message, throwable);
+        super(message, throwable, errorCode);
     }
 
     public RemoteException(String code, String message) {

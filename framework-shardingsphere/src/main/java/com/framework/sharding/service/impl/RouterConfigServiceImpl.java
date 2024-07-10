@@ -6,11 +6,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.framework.sharding.entity.RouterConfig;
 import com.framework.sharding.mapper.RouterConfigMapper;
 import com.framework.sharding.service.RouterConfigService;
+import com.framework.starter.common.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -42,7 +44,11 @@ public class RouterConfigServiceImpl extends ServiceImpl<RouterConfigMapper, Rou
     public RouterConfig selectById(Long id) {
         LambdaQueryWrapper<RouterConfig> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(RouterConfig::getId, id);
-        return this.getOne(queryWrapper);
+        RouterConfig config = this.getOne(queryWrapper);
+        if (Objects.isNull(config)) {
+            throw new BaseException("0202B052", id);
+        }
+        return config;
     }
 
     @Override

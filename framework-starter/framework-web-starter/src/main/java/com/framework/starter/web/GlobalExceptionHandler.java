@@ -2,9 +2,9 @@ package com.framework.starter.web;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
-import com.framework.starter.common.exception.AbstractException;
 import com.framework.starter.common.exception.ErrorCode;
-import com.framework.starter.common.result.Result;
+import com.framework.starter.common.exception.SamplesApplicationException;
+import com.framework.starter.common.result.BaseResult;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
     // 处理参数验证异常
     @SneakyThrows
     @ExceptionHandler(value = {MethodArgumentNotValidException.class, BindException.class, ValidationException.class})
-    public Result<Void> handleValidException(HttpServletRequest request, Exception e) {
+    public BaseResult<Void> handleValidException(HttpServletRequest request, Exception e) {
         String exceptionStr = "参数校验异常";
         if (e instanceof MethodArgumentNotValidException ex) {
             BindingResult bindingResult = ex.getBindingResult();
@@ -63,26 +63,26 @@ public class GlobalExceptionHandler {
         }
 
         log.error("[{}] {} [ex] {}", request.getMethod(), getUrl(request), exceptionStr);
-        return ResultFactory.fail(ErrorCode.CLIENT_ERROR, exceptionStr);
+        return BaseResult.buildFail(ErrorCode.CLIENT_ERROR.getCode(), ErrorCode.CLIENT_ERROR.getMessage(),exceptionStr);
     }
 
     // 处理自定义异常
-    @ExceptionHandler(value = {AbstractException.class})
+    @ExceptionHandler(value = {SamplesApplicationException.class})
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result<Void> handleAbstractException(HttpServletRequest request, AbstractException ex) {
+    public BaseResult<Void> handleAbstractException(HttpServletRequest request, SamplesApplicationException ex) {
         String requestURL = getUrl(request);
         log.error("[{}] {} [ex] {}", request.getMethod(), requestURL, ex.toString());
         if (ex.getCause() != null) {
             log.error("[{}] {} [ex] {}", request.getMethod(), requestURL, ex, ex.getCause());
         }
-        return ResultFactory.fail(ex);
+        return BaseResult.buildFail(ex);
     }
 
     // 兜底处理
     @ExceptionHandler(value = Throwable.class)
-    public Result<Void> handleThrowable(HttpServletRequest request, Throwable throwable) {
+    public BaseResult<Void> handleThrowable(HttpServletRequest request, Throwable throwable) {
         log.error("[{}] {} ", request.getMethod(), getUrl(request), throwable);
-        return ResultFactory.fail(ErrorCode.SERVICE_ERROR, "系统异常，请联系管理员!");
+        return BaseResult.buildFail(ErrorCode.SERVICE_ERROR.getCode(), ErrorCode.SERVICE_ERROR.getMessage());
     }
 
     private String getUrl(HttpServletRequest request) {

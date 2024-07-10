@@ -42,8 +42,8 @@
         <minio.version>8.5.5</minio.version>
         <jjwt-jackson.version>0.11.2</jjwt-jackson.version>
         <cglib.version>3.3.0</cglib.version>
-        <aspectjrt.verison>1.9.19</aspectjrt.verison>
-        <aspectjweaver.version>1.9.2</aspectjweaver.version>
+        <aspectjrt.version>1.9.21</aspectjrt.version>
+        <aspectjweaver.version>1.9.21</aspectjweaver.version>
         <seata-spring-boot.version>1.0.0</seata-spring-boot.version>
         <jaxb-impl.version>2.3.1</jaxb-impl.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>

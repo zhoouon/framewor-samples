@@ -1,6 +1,6 @@
 package com.framework.starter.web;
 
-import com.framework.starter.common.result.Result;
+import com.framework.starter.common.result.BaseResult;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class GlobalErrorController extends AbstractErrorController {
 
     @RequestMapping
     // @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public Result<Void> error(HttpServletRequest request) {
+    public BaseResult<Void> error(HttpServletRequest request) {
         HttpStatus status = getStatus(request);
         ErrorAttributeOptions of = ErrorAttributeOptions.of(ErrorAttributeOptions.Include.EXCEPTION,
                 ErrorAttributeOptions.Include.MESSAGE,
@@ -41,7 +41,7 @@ public class GlobalErrorController extends AbstractErrorController {
 
         String message = String.format("%s: %s", body.get("message"), body.get("path"));
 
-        return ResultFactory.fail(String.valueOf(status), message);
+        return BaseResult.buildFail(String.valueOf(status), message);
 
     }
 

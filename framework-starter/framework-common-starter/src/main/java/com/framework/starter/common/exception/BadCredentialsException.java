@@ -16,7 +16,7 @@ public class BadCredentialsException extends ClientException {
      * @param message the detail message.
      */
     public BadCredentialsException(String message) {
-        super(ErrorCode.BAD_CREDENTIALS_EXPIRED, message, null);
+        super(ErrorCode.BAD_CREDENTIALS_EXPIRED, null, message);
     }
 
     /**
@@ -24,6 +24,6 @@ public class BadCredentialsException extends ClientException {
      * @param throwable the detail Throwable.
      */
     public BadCredentialsException(String message, Throwable throwable) {
-        super(ErrorCode.BAD_CREDENTIALS_EXPIRED, message, throwable);
+        super(ErrorCode.BAD_CREDENTIALS_EXPIRED, throwable, message);
     }
 }

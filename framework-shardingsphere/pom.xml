@@ -20,6 +20,10 @@
     <dependencies>
         <dependency>
             <groupId>com.framework</groupId>
+            <artifactId>framework-common-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.framework</groupId>
             <artifactId>framework-logging-starter</artifactId>
         </dependency>
         <dependency>
