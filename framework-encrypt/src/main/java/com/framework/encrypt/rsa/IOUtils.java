@@ -3,10 +3,11 @@ package com.framework.encrypt.rsa;
 import java.io.*;
 
 /**
- * IO 工具类, 读写文件
- *
- * @author xietansheng
- */
+ * @Author: zhoudong
+ * @Description: IO 工具类, 读写文件
+ * @Date: 2024/7/26 14:25
+ * @Version: 1.0.0
+ **/
 public class IOUtils {
 
     public static void writeFile(String data, File file) throws IOException {
