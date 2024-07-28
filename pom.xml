@@ -19,6 +19,7 @@
         <module>framework-minio</module>
         <module>framework-dom4j</module>
         <module>framework-starter</module>
+        <module>framework-encrypt</module>
     </modules>
 
     <properties>

@@ -1,6 +1,7 @@
 package com.framework.sharding;
 
 import cn.hutool.core.lang.Snowflake;
+import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.framework.sharding.entity.RouterConfig;

@@ -19,9 +19,9 @@ public class ThreadPoolConfig {
     public ThreadPoolTaskExecutor AsyncThreadPoolExecutor(){
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         // 核心线程数一般为 cpu * 2 + 1
-        threadPoolTaskExecutor.setCorePoolSize(13);
+        threadPoolTaskExecutor.setCorePoolSize(33);
         // 最大线程数一般为 核心线程数 * 2
-        threadPoolTaskExecutor.setMaxPoolSize(26);
+        threadPoolTaskExecutor.setMaxPoolSize(66);
         threadPoolTaskExecutor.setQueueCapacity(120);
         threadPoolTaskExecutor.setKeepAliveSeconds(30);
         threadPoolTaskExecutor.setThreadNamePrefix("batchSave_");
