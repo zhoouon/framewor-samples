@@ -1,5 +1,6 @@
 package com.framework.sharding.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.framework.sharding.entity.RouterConfig;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.concurrent.CountDownLatch;
  * @Date: 2024-07-06 14:39
  * @Version: 1.0.0
  **/
-public interface RouterConfigService {
+public interface RouterConfigService extends IService<RouterConfig> {
 
     Integer add(RouterConfig routerConfig);
 

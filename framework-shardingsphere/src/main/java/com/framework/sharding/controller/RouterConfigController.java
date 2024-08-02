@@ -29,8 +29,8 @@ public class RouterConfigController {
 
     @Function(descreption = "路由器配置信息-保存")
     @PostMapping("/save")
-    public BaseResult<Integer> add(@RequestBody BaseRequestParam<RouterConfig> param) {
-        return BaseResult.buildSuccessData(routerConfigService.add(param.getRequestBody()));
+    public BaseResult<Boolean> add(@RequestBody BaseRequestParam<RouterConfig> param) {
+        return BaseResult.buildSuccessData(routerConfigService.save(param.getRequestBody()));
     }
 
     @Function(descreption = "路由器配置信息-刪除")
