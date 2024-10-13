@@ -20,6 +20,8 @@
         <module>framework-dom4j</module>
         <module>framework-starter</module>
         <module>framework-encrypt</module>
+        <module>framework-pf4j</module>
+        <module>framework-netty</module>
     </modules>
 
     <properties>
