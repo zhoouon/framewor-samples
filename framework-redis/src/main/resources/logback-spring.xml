@@ -16,7 +16,7 @@
 
     <!-- 配置日志文件保存位置 -->
     <!-- 方式一：直接本配置文件配置，name的值是变量的名称，value的值时变量定义的值。通过定义的值会被插入到logger上下文中。定义后，可以使“${}”来使用变量。 -->
-    <property name="logging.path" value="./logs"/>
+    <property name="logging.path" value="./logs/framework-redis"/>
     <!-- 方式二：properties配置文件定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径。resource指定配置文件，source配置文件内参数key -->
     <!--  <property resource="application.properties"/>
      <springProperty scope="context" name="LOG_PATH" source="kjcc.loggingPath"/>
