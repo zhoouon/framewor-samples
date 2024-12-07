@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.framework.starter.datasource.CustomIdGenerator;
-import com.framework.starter.datasource.handler.DailyMartMetaObjectHandler;
+import com.framework.starter.datasource.handler.MartMetaObjectHandler;
 import com.framework.starter.datasource.intecept.SlowSqlInterceptor;
 import jakarta.annotation.Resource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootConfiguration
 @ConditionalOnClass({SqlSessionFactory.class, SqlSessionFactoryBean.class})
 @EnableConfigurationProperties(SlowSQLProperties.class)
-public class DailyMartDsAutoConfiguration {
+public class MartDsAutoConfiguration {
 
     @Resource
     private SlowSQLProperties slowSQLProperties;
@@ -49,15 +49,15 @@ public class DailyMartDsAutoConfiguration {
      * 在 插入/更新 数据时自动填充默认值
      */
     @Bean
-    public DailyMartMetaObjectHandler myMetaObjectHandler() {
-        return new DailyMartMetaObjectHandler();
+    public MartMetaObjectHandler myMetaObjectHandler() {
+        return new MartMetaObjectHandler();
     }
 
     /**
      * 注入mybatis插件，可以统计SQL执行耗时
      */
     @Bean
-    @ConditionalOnProperty(name = "dailymart.sql.slow.enable", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(name = "zhoouon.sql.slow.enable", havingValue = "true", matchIfMissing = true)
     public ConfigurationCustomizer mybatisConfigurationCustomizer() {
         return configuration -> configuration.addInterceptor(new SlowSqlInterceptor(slowSQLProperties));
     }

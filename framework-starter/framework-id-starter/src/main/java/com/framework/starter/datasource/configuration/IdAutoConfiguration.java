@@ -33,7 +33,6 @@ public class IdAutoConfiguration {
 
     /**
      * 注入ID生成器实现
-     * @return see {@link com.jianzh5.dailymart.springboot.starter.id.core.DefaultIdGenerator}
      */
     @Bean
     @ConditionalOnMissingBean

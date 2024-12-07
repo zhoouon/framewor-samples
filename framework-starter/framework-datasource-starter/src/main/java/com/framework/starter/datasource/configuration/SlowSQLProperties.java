@@ -26,7 +26,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Description:
  * Redis 配置类
  */
-@ConfigurationProperties(prefix = "dailymart.sql.slow")
+@ConfigurationProperties(prefix = "zhoouon.sql.slow")
 @Data
 public class SlowSQLProperties {
 

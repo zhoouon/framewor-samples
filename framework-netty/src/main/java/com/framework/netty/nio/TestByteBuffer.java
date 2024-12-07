@@ -38,7 +38,7 @@ public class TestByteBuffer {
                     byte b = buffer.get();
                     System.out.println((char) b);
                 }
-                // 切换成写模式，如果不切换，就会无限循环打印读取到的数据
+                // 切换成写模式，是为了将读模式写入到ByteBuffer中的数据全部打印出来
                 buffer.clear();
             }
         } catch (IOException e) {

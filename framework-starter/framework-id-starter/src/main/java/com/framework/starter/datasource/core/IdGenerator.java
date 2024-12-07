@@ -21,11 +21,6 @@ package com.framework.starter.datasource.core;
 
 import com.framework.starter.datasource.toolkit.IdUtils;
 
-/**
- * @author jam
- * 公众号：JAVA日知录
- * @date 2023/9/20 21:59
- */
 public interface IdGenerator {
 
     default String nextUUID() {

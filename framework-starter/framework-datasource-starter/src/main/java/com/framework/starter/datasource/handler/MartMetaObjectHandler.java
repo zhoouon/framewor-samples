@@ -12,7 +12,7 @@ import java.util.function.Supplier;
  * MetaObjectHandler接口是mybatisPlus为我们提供的的一个扩展接口，我们可以利用这个接口在我们插入或者更新数据的时候，为一些字段指定默认值。
  * 使用时实体类上边加上 @TableField(fill = FieldFill.INSERT_UPDATE)
  */
-public class DailyMartMetaObjectHandler implements MetaObjectHandler {
+public class MartMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {

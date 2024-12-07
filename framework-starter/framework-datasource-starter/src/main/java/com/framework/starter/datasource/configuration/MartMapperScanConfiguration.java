@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
  * 自定义数据模块自动配置类
  */
 @SpringBootConfiguration
-public class DailyMartMapperScanConfiguration {
+public class MartMapperScanConfiguration {
 
     /**
      * 配置统一拦截地址，这样就不再需要在启动类上指定@MapperScan注解，适用于项目中统一模块路径

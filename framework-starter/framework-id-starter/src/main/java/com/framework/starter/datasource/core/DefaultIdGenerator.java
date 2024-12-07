@@ -22,10 +22,7 @@ package com.framework.starter.datasource.core;
 import com.framework.starter.datasource.toolkit.IdUtils;
 
 /**
- * @author jam
- * 公众号：JAVA日知录
  * 基于Seata构建优化后的雪花算法包装
- * @date 2023/9/20 22:03
  */
 public class DefaultIdGenerator implements IdGenerator {
 

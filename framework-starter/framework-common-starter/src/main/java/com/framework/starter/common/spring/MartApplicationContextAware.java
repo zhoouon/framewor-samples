@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * application context aware
  */
-public class DailyMartApplicationContextAware implements ApplicationContextAware {
+public class MartApplicationContextAware implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(final ApplicationContext applicationContext) throws BeansException {

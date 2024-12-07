@@ -20,7 +20,7 @@
 package com.framework.starter.common.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.framework.starter.common.spring.DailyMartApplicationContextAware;
+import com.framework.starter.common.spring.MartApplicationContextAware;
 import com.framework.starter.common.toolkit.CustomJsonModule;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -41,8 +41,8 @@ public class BaseAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public DailyMartApplicationContextAware applicationContextAware() {
-        return new DailyMartApplicationContextAware();
+    public MartApplicationContextAware applicationContextAware() {
+        return new MartApplicationContextAware();
     }
 
     @Bean
